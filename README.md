@@ -8,11 +8,11 @@ A modern, production-grade template for creating high-performance landing pages 
 - [Project Structure](#project-structure)
 - [Dev Commands](#dev-commands)
 - [Build Features](#build-features)
-- [Notes](#notes)
+  - [CSP](#CSP)
+  - [GitHub Pages Deployment](#gitHub-pages-deployment)
   - [Favicon Generation](#favicon-generation)
   - [Browser Launch Scripts](#browser-launch-scripts)
-  - [Required Customization](#required-customization)
-  - [GitHub Pages Deployment](#github-pages-deployment)
+- [Required Customization](#required-customization)
 - [License](#license)
 
 ## Key Features
@@ -27,8 +27,8 @@ A modern, production-grade template for creating high-performance landing pages 
 
 - **Branch Structure**  
   - `master`: Base landing page template (current branch)
-  - `product`: Template with [schema.org](https://schema.org) microdata for product landing pages  
-  - `service`: Template with microdata for service-oriented landing pages
+  - `product`: Template with [schema.org](https://schema.org) microdata for product landing pages
+  - `service`: Template with [schema.org](https://schema.org) microdata for service-oriented landing pages 
 
 ## Project Structure
 ```
@@ -88,8 +88,34 @@ landing-template/
   - PNG favicons (16x16, 32x32, 48x48)
   - Apple Touch Icon
   - Web App manifest icons
+- Content Security Policy (CSP) Injection
 
-## Notes
+### CSP
+Production builds automatically inject a security-focused CSP meta tag:
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'self';">
+```
+**Implementation rationale:**
+The CSP is dynamically injected during production builds to:
+- Prevent conflicts with BrowserSync's live-reload scripts during development. BrowserSync requires injecting third-party scripts for hot-reload functionality. The strict default-src 'self' policy would block these scripts, hence CSP is only enabled in production builds.
+- Avoid security exceptions for external resources in dev mode
+- Maintain strict security posture in production without compromising DX
+
+**Default restrictions:**
+- Only allows loading resources from the same origin ('self')
+- Blocks inline scripts/styles
+- Disables eval() in JavaScript
+- Prevents frame embedding
+
+**To customize:**
+- Modify the CSP rules in build.js (search for CSP_META replacement logic)
+- Add required exceptions (e.g. 'unsafe-inline' for legacy code, CDN domains)
+
+**To disable:**
+Remove both the <!-- CSP_META --> comment from src/index.html and the replacement logic from build.js
+
+### GitHub Pages Deployment
+Before deploying to GitHub Pages, make sure the `repository.url` field in `package.json` is correctly set. Then run `npm run deploy` to publish the site.
 
 ### Favicon Generation
 The build script requires specific source files for favicon generation. Add these files to `assets/img/`:
@@ -114,7 +140,7 @@ browserSync: {
 }
 ```
 
-### Required Customization
+## Required Customization
 Ensure you replace all placeholders with your project-specific values:
 
 - **package.json:**
@@ -146,10 +172,7 @@ Ensure you replace all placeholders with your project-specific values:
   - `<meta name="apple-mobile-web-app-title">`: sets the title for iOS devices
   - `<meta name="geo.region">`: your region code (e.g., "US" for the United States)
   - `<meta name="geo.placename">`: your city or locality
-  - Open Graph and Twitter Card meta tags 
-
-### GitHub Pages Deployment
-Before deploying to GitHub Pages, make sure the `repository.url` field in `package.json` is correctly set. Then run `npm run deploy` to publish the site.
+  - Open Graph and Twitter Card meta tags
 
 ## License
 
