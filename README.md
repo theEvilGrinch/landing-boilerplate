@@ -26,9 +26,9 @@ A modern, production-grade template for creating high-performance landing pages 
   The project is tested and guaranteed to work with **Node.js v23.9.0** and **npm 11.3.0**.
 
 - **Branch Structure**  
-  - `master`: Base landing page template (current branch)
-  - `product`: Template with [schema.org](https://schema.org) microdata for product landing pages  
-  - `service`: Template with microdata for service-oriented landing pages
+  - `master`: Base landing page template
+  - `product`: Template with microdata for product landing pages (current branch) 
+  - `service`: Template with [schema.org](https://schema.org) microdata for service-oriented landing pages
 
 ## Project Structure
 ```
@@ -147,6 +147,7 @@ Ensure you replace all placeholders with your project-specific values:
   - `<meta name="geo.region">`: your region code (e.g., "US" for the United States)
   - `<meta name="geo.placename">`: your city or locality
   - Open Graph and Twitter Card meta tags 
+  - Schema.org microdata in ld+json script tag
 
 ### GitHub Pages Deployment
 Before deploying to GitHub Pages, make sure the `repository.url` field in `package.json` is correctly set. Then run `npm run deploy` to publish the site.
