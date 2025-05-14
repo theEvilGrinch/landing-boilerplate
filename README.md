@@ -27,8 +27,8 @@ A modern, production-grade template for creating high-performance landing pages 
 
 - **Branch Structure**  
   - `master`: Base landing page template
-  - `product`: Template with microdata for product landing pages (current branch) 
-  - `service`: Template with [schema.org](https://schema.org) microdata for service-oriented landing pages
+  - `product`: Template with [schema.org](https://schema.org) microdata for product landing pages
+  - `service`: Template with microdata for service-oriented landing pages (current branch) 
 
 ## Project Structure
 ```

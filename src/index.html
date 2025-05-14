@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" prefix="og: http://ogp.me/ns# product: http://ogp.me/ns/product#">
+<html lang="ru" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,119 +53,117 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Super Amazing Product",
-      "image": "https://www.example.com/product-image.jpg",
-      "description": "This is a super amazing product that will change your life.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Amazing Brand"
+      "@type": "LocalBusiness",
+      "name": "PC Repair Service",
+      "image": "https://www.pcrepair.ru/company-logo.jpg",
+      "description": "Professional repair of computers, laptops, and mobile phones in Moscow.",
+      "url": "https://www.pcrepair.ru",
+      "telephone": "+7-495-555-1234",
+      "email": "info@pcrepair.ru",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10 Tekhnicheskaya St",
+        "addressLocality": "Moscow",
+        "addressRegion": "Moscow Region",
+        "postalCode": "105318",
+        "addressCountry": "RU"
       },
-      "sku": "12345",
-      "mpn": "67890",
-      "offers": {
-        "@type": "Offer",
-        "url": "https://www.example.com/product-page",
-        "priceCurrency": "RUB",
-        "price": "2999.99",
-        "priceValidUntil": "2025-12-31",
-        "itemCondition": "https://schema.org/NewCondition",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "LocalBusiness",
-          "name": "Amazing Brand Store",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "123 Business Street",
-            "addressLocality": "Moscow",
-            "addressRegion": "Moscow Region",
-            "postalCode": "101000",
-            "addressCountry": "RU"
-          },
-          "telephone": "+7-495-123-4567",
-          "url": "https://www.example.com",
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 55.7558,
-            "longitude": 37.6173
-          },
-          "priceRange": "1000-5000 RUB",
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday"
-              ],
-              "opens": "09:00",
-              "closes": "18:00"
-            }
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 55.7812,
+        "longitude": 37.7175
+      },
+      "priceRange": "1000-10000 RUB",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
           ],
-          "sameAs": [
-            "https://www.facebook.com/mycompany",
-            "https://twitter.com/mycompany"
-          ],
-          "image": "https://www.example.com/store-logo.jpg"
-        },
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "deliveryMethod": {
-            "@type": "DeliveryMethod",
-            "name": "Mail",
-            "url": "https://www.example.com/shipping-info"
+          "opens": "10:00",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/pcrepairmoscow",
+        "https://twitter.com/pcrepairmoscow"
+      ],
+      "areaServed": {
+        "@type": "DefinedRegion",
+        "addressCountry": "RU",
+        "addressRegion": "Moscow Region",
+        "addressLocality": "Moscow"
+      },
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Computer Repair",
+            "description": "Repair of desktop computers, including hardware and software issues.",
+            "serviceType": "Computer Repair Service"
           },
-          "shippingDestination": {
-            "@type": "DefinedRegion",
-            "addressCountry": "RU"
-          },
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "currency": "RUB",
-            "value": "250.00"
-          },
-          "deliveryTime": {
-            "@type": "ShippingDeliveryTime",
-            "handlingTime": {
-              "@type": "QuantitativeValue",
-              "minValue": 1,
-              "maxValue": 2,
-              "unitCode": "DAY"
-            },
-            "transitTime": {
-              "@type": "QuantitativeValue",
-              "minValue": 3,
-              "maxValue": 5,
-              "unitCode": "DAY"
-            }
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "RUB",
+            "minPrice": "1000",
+            "maxPrice": "5000"
           }
         },
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "returnFees": "https://schema.org/FreeReturn",
-          "returnMethod": "https://schema.org/ReturnByMail",
-          "applicableCountry": "RU",
-          "merchantReturnDays": 14,
-          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow"
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Laptop Repair",
+            "description": "Comprehensive laptop repair, including screen replacement and system diagnostics.",
+            "serviceType": "Laptop Repair Service"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "RUB",
+            "minPrice": "1500",
+            "maxPrice": "7000"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Mobile Phone Repair",
+            "description": "Repair of mobile phones, including battery replacement and software updates.",
+            "serviceType": "Mobile Phone Repair Service"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "RUB",
+            "minPrice": "1000",
+            "maxPrice": "4000"
+          }
         }
-      },
+      ],
       "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": "4.5",
-        "reviewCount": "150"
+        "ratingValue": "4.8",
+        "reviewCount": "120"
       },
       "review": [
         {
           "@type": "Review",
           "author": {
             "@type": "Person",
-            "name": "John Doe"
+            "name": "Alexey Ivanov"
           },
-          "datePublished": "2024-05-01",
-          "reviewBody": "This product is fantastic! It changed my life.",
-          "name": "Great product!"
+          "datePublished": "2025-01-15",
+          "reviewBody": "Fixed my laptop quickly, excellent service!",
+          "name": "Great Repair",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          }
         }
       ]
     }
