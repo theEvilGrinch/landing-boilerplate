@@ -25,7 +25,6 @@ async function watchFiles() {
       lastEvent.set(label, now);
       try {
         await action(filename);
-        bs.reload();
       } catch (err) {
         console.error(`WATCH ${label} ERR:`, err);
       }

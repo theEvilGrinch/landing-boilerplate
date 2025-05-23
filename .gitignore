@@ -133,4 +133,3 @@ flycheck_*.el
 .projectile
 .dir-locals.el
 /network-security.data
-/build/
