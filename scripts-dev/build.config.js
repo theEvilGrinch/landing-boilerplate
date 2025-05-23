@@ -1,6 +1,9 @@
 import path from 'path';
 import {fileURLToPath} from 'url';
 
+export const CSP = 'default-src \'self\';'; // Content Security Policy
+export const DEV_MODE = process.env.NODE_ENV === 'development';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.dirname(__dirname);
@@ -31,12 +34,12 @@ export const projectPaths = {
 
 export const config = {
   browserSync: {
-    // proxy: 'myDomain.local', // If you use a local server
     files: [
-      // `${projectPaths.distDir}/**/*.{html,css,js}`,
-      // `!${projectPaths.images.distDir}/**/*` // exclude image tracking
-    ], // Pattern to watch for file changes in the dist directory (HTML, CSS, JS)
-    // server: projectPaths.distDir,
+      `${projectPaths.distDir}/**/*.{html,css,js}`
+    ],
+    ignore: [
+      `${projectPaths.distDir}/pagefind/**/*`
+    ],
     server: {
       baseDir: projectPaths.distDir,
       middleware: [(req, res, next) => {
@@ -46,13 +49,15 @@ export const config = {
         next();
       }]
     },
+    injectChanges: true,
+    notify: false,
+    browser: path.join(__dirname, 'open-incognito-firefox.zsh')
+    // browser: path.join(__dirname, 'open-incognito-chromium.zsh'),
     // browser: 'firefox-developer-edition',
     // browser: 'chromium',
-    // browser: path.join(__dirname, 'open-incognito-chromium.zsh'),
-    browser: path.join(__dirname, 'open-incognito-firefox.zsh'),
-    injectChanges: true,
+    // proxy: 'myDomain.local',
     // logLevel: 'debug',
-    notify: false
+    // port: 3000,
     // Configuration for injecting the BrowserSync snippet into HTML files
     // snippetOptions: {
     //   rule: {
