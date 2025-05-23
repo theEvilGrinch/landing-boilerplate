@@ -13,9 +13,7 @@ import png2icons from 'png2icons';
 import imagemin from 'imagemin';
 import imageminPngquant from 'imagemin-pngquant';
 import {optimize} from 'svgo';
-import {projectPaths, config} from './build.config.js';
-
-const DEV_MODE = process.env.NODE_ENV === 'development';
+import {projectPaths, config, DEV_MODE, CSP} from './build.config.js';
 
 export async function minifyHTML() {
   try {
@@ -24,10 +22,12 @@ export async function minifyHTML() {
     for (const page of pages) {
       let content = await fs.readFile(path.join(projectPaths.html.srcDir, page), 'utf8');
       if (path.basename(page) === 'index.html' && !DEV_MODE) {
-        content = content.replace('<!-- CSP_META -->', '<meta http-equiv="Content-Security-Policy" content="default-src \'self\';">');
+        content = content.replace('<!-- CSP_META -->', `<meta http-equiv="Content-Security-Policy" content="${CSP}">`);
+        const minified = await minify(content, config.html);
+        fs.writeFile(path.join(projectPaths.distDir, page), minified);
+      } else {
+        fs.writeFile(path.join(projectPaths.distDir, page), content);
       }
-      const minified = await minify(content, config.html);
-      await fs.writeFile(path.join(projectPaths.distDir, page), minified);
     }
     console.log('HTML OK');
   } catch (err) {

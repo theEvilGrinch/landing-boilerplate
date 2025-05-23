@@ -107,12 +107,12 @@ The CSP is dynamically injected during production builds to:
 - Disables eval() in JavaScript
 - Prevents frame embedding
 
-**To customize:**
-- Modify the CSP rules in build.js (search for CSP_META replacement logic)
-- Add required exceptions (e.g. 'unsafe-inline' for legacy code, CDN domains)
+Customize the Content Security Policy by updating the CSP variable in the `scripts-dev/build.config.js` file to add necessary exceptions (such as 'unsafe-inline' for inline scripts or external CDN domains).
 
-**To disable:**
-Remove both the <!-- CSP_META --> comment from src/index.html and the replacement logic from build.js
+To disable the Content Security Policy completely:
+- Remove the comment `<!-- CSP_META -->` from `src/index.html`
+- Remove the corresponding replacement logic from the `build.js` file and the CSP variable import
+- Remove the CSP variable in the `scripts-dev/build.config.js`
 
 ### GitHub Pages Deployment
 Before deploying to GitHub Pages, make sure the `repository.url` field in `package.json` is correctly set. Then run `npm run deploy` to publish the site.
