@@ -1,6 +1,6 @@
 # landing-template
 
-A modern, production-grade template for creating high-performance landing pages with automated asset processing, advanced optimization, and seamless deployment workflows.
+A modern, production-grade template for creating high-performance landing pages. Features vendored `node_modules` for deterministic builds, proven compatibility with Node.js v23.9.0 and npm 11.3.0, and a well-organized project structure. Supports automated asset processing, advanced optimization, and seamless deployment workflows. Includes CSP for security, GitHub Pages deployment, favicon generation, Twitter Card and Open Graph markup for enhanced social media sharing and SEO. Provides dedicated branches for product and service landing pages with schema.org microdata.
 
 ## Table of Contents
 
