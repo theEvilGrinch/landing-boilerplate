@@ -21,8 +21,9 @@ export const projectPaths = {
     dist: path.join(rootDir, 'dist', 'main.css')
   },
   js: {
-    src: path.join(rootDir, 'src', 'main.js'),
-    dist: path.join(rootDir, 'dist', 'main.js')
+    src: path.join(rootDir, 'src', 'scripts', 'index.mjs'),
+    dist: path.join(rootDir, 'dist', 'index.mjs'),
+    scriptsDir: path.join(rootDir, 'src', 'scripts')
   },
   images: {
     srcDir: path.join(rootDir, 'assets', 'img'),
@@ -34,10 +35,10 @@ export const projectPaths = {
 export const config = {
   browserSync: {
     files: [
-      `${projectPaths.distDir}/**/*.{html,css,js}`
+      path.posix.join(projectPaths.distDir, '**', '*.{html,css,js}')
     ],
     ignore: [
-      `${projectPaths.distDir}/pagefind/**/*`
+      path.posix.join(projectPaths.distDir, 'pagefind', '**', '*')
     ],
     server: {
       baseDir: projectPaths.distDir,
@@ -88,9 +89,9 @@ export const config = {
 
   esbuild: {
     entryPoints: [projectPaths.js.src],
-    outdir: projectPaths.distDir,
+    outfile: projectPaths.js.dist,
     minify: true,
-    bundle: false,
+    bundle: true,
     format: 'esm',
     sourcemap: false,
     define: {

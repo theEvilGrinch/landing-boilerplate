@@ -44,7 +44,7 @@ landing-template/
 ├── src/                       
 │   ├── index.html                   # Main HTML template
 │   ├── 404.html                     # Custom error page with animation
-│   ├── main.js                      # JavaScript entry point
+│   ├── index.mjs                      # JavaScript entry point
 │   └── styles/             
 │       ├── main.scss                # Main stylesheet entry point
 │       ├── reset.css                # CSS reset and normalizer
