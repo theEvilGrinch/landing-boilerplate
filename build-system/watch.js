@@ -1,4 +1,3 @@
- 
 import {watch} from 'fs';
 import browserSync from 'browser-sync';
 import {bundleJs, minifyHTML, compileSass} from './build.js';
@@ -14,7 +13,7 @@ async function watchFiles() {
   const watchList = [
     {path: projectPaths.styles.srcDir, action: compileSass, label: 'SASS'},
     {path: projectPaths.html.index, action: minifyHTML, label: 'HTML'},
-    {path: projectPaths.js.src, action: bundleJs, label: 'JS'}
+    {path: projectPaths.js.scriptsDir, action: bundleJs, label: 'JS'}
   ];
   const lastEvent = new Map();
   watchList.forEach(({path: watchPath, action, label}) => {
