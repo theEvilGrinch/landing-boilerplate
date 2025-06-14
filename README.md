@@ -41,6 +41,11 @@ A production-ready, high-performance landing page template built with modern web
 
 ## Project Structure
 
+**Branch Structure**  
+  - `master`: Base landing page template (current branch)
+  - `product`: Template with [schema.org](https://schema.org) microdata for product landing pages
+  - `service`: Template with [schema.org](https://schema.org) microdata for service-oriented landing pages
+
 ```
 landing-boilerplate/
 ├── assets/                  # Static assets
