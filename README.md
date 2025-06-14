@@ -1,131 +1,206 @@
-# landing-template
+# SEO-Optimized Responsive Service Landing Page
 
-A modern, production-grade template for creating high-performance landing pages with automated asset processing, advanced optimization, and seamless deployment workflows.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
+[![Support me on Boosty](https://img.shields.io/badge/Boosty-Support%20me-%23f15f2c?style=for-the-badge)](https://boosty.to/theEvilGrinch/donate)
+[![Donate](https://img.shields.io/badge/Donate-%23702ff4?style=for-the-badge)](https://yoomoney.ru/to/410016288289737)
+
+A production-ready, high-performance landing page template built with modern web technologies. This boilerplate provides a solid foundation for creating fast, accessible, and maintainable landing pages with zero runtime dependencies.
 
 ## Table of Contents
 
-- [Key Features](#key-features)
+- [Features](#features)
 - [Project Structure](#project-structure)
-- [Dev Commands](#dev-commands)
-- [Build Features](#build-features)
-  - [CSP](#CSP)
-  - [GitHub Pages Deployment](#gitHub-pages-deployment)
-  - [Favicon Generation](#favicon-generation)
+- [Quick Start](#quick-start)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Development](#development)
+  - [Production Build](#production-build)
+- [Build System](#build-system)
+  - [Available Scripts](#available-scripts)
   - [Browser Launch Scripts](#browser-launch-scripts)
+- [Theming](#theming)
+- [Security](#security)
 - [Required Customization](#required-customization)
+- [Additional Features](#additional-features)
+- [Contributing](#contributing)
 - [License](#license)
 
-## Key Features
+## Features
 
-- **Vendored `node_modules`**  
-  All dependencies are included in the repository under the `node_modules` directory.  
-  **No need to run `npm install`.**  
-  This ensures deterministic builds and eliminates dependency drift.
-
-- **Proven Compatibility**  
-  The project is tested and guaranteed to work with **Node.js v23.9.0** and **npm 11.3.0**.
-
-- **Branch Structure**  
-  - `master`: Base landing page template
-  - `product`: Template with [schema.org](https://schema.org) microdata for product landing pages
-  - `service`: Template with [schema.org](https://schema.org) microdata for service-oriented landing pages (current branch) 
+- **SEO Optimized** - Semantic HTML, meta tags, and Schema.org structured data for service landing pages
+- **Blazing Fast** - Built with ESBuild for lightning-fast builds
+- **Modern CSS** - SCSS with CSS Custom Properties for theming
+- **Security First** - Content Security Policy (CSP) compliant
+- **Accessibility** - WCAG 2.1 compliant with proper ARIA attributes
+- **Fully Responsive** - Optimized for mobile and desktop devices
+- **Developer Experience** - Live reload and modern tooling
+- **Dark/Light Mode** - Automatic theme detection with manual override
+- **Cookie Consent** - Basic cookie consent functionality
+- **Structured Data** - Built-in Schema.org markup for products, organizations, and breadcrumbs
+- **Zero Dependencies** - No JavaScript framework required
 
 ## Project Structure
+
+**Branch Structure**  
+  - `master`: Base landing page template 
+  - `product`: Template with [schema.org](https://schema.org) microdata for product landing pages
+  - `service`: Template with [schema.org](https://schema.org) microdata for service-oriented landing pages (current branch)
+
 ```
-landing-template/
-├── dist/                            # Production-ready build output
-├── assets/                
-│   ├── img/             
-│   │   ├── icon_src_512.png         # PNG source file for favicon generation
-│   │   ├── icon_src.svg             # SVG source file for favicon generation
-│   │   └── readme.md                # Details about favicon generation requirements
-│   ├── fonts/                       # Optimized web fonts
-│   └── manifest.webmanifest         # Web App Manifest
-├── src/                       
-│   ├── index.html                   # Main HTML template
-│   ├── 404.html                     # Custom error page with animation
-│   ├── main.js                      # JavaScript entry point
-│   └── styles/             
-│       ├── main.scss                # Main stylesheet entry point
-│       ├── reset.css                # CSS reset and normalizer
-│       ├── _custom.scss             # Custom styles and overrides
-│       ├── _fonts.scss              # Font definitions
-│       └── core/                    # Core SCSS modules
-│           ├── _index.scss          # Core module entry point
-│           ├── _variables.scss      # Global variables
-│           └── _mixins.scss         # Reusable mixins
-├── scripts-dev/            
-│   ├── build.js                     # Main build script
-│   ├── build.config.js              # Build configuration
-│   ├── watch.js                     # Source file watcher
-│   ├── open-incognito-chromium.zsh  # Launch Chromium in incognito mode
-│   └── open-incognito-firefox.zsh   # Launch Firefox in incognito mode
-├── node_modules/                    # Vendored dependencies
-├── .eslintrc.json                   # ESLint configuration
-├── .stylelintrc.json                # Stylelint configuration
-├── package.json                     # Project metadata and scripts
-└── README.md                        # Project documentation
+landing-boilerplate/
+├── assets/                  # Static assets
+│   ├── fonts/               # Custom fonts
+│   ├── img/                 # Image assets
+│   └── manifest.webmanifest # Web App Manifest
+├── build-system/            # Build configuration
+│   ├── build.config.js      # Build settings
+│   ├── build.js             # Production build script
+│   ├── watch.js             # Development watch script
+│   ├── open-incognito-chromium.zsh   # Chromium private mode launcher
+│   └── open-incognito-firefox.zsh    # Firefox private mode launcher
+├── src/                              # Source files
+│   ├── scripts/                      # JavaScript modules
+│   │   ├── index.mjs                 # Main JS entry point
+│   │   ├── set-color-theme.mjs       # Theme management
+│   │   ├── show-cookies-dialog.mjs   # Cookie consent
+│   │   └── update-copyright-year.mjs # Dynamic year update
+│   ├── styles/                       # SCSS styles
+│   │   ├── core/                     # Core SCSS utilities
+│   │   │   ├── _index.scss           # Core utilities entry point
+│   │   │   ├── _mixins.scss          # SCSS mixins/helpers
+│   │   │   └── _variables.scss       # SCSS variables
+│   │   ├── _fonts.scss               # Font face declarations
+│   │   ├── _template-styles.scss     # Base template styles
+│   │   ├── main.scss                 # Main SCSS entry point
+│   │   └── reset.css                 # CSS reset
+│   ├── 404.html                      # Custom 404 page
+│   └── index.html                    # Main HTML template
+├── node_modules/                     # Dependencies and tools
+├── .gitignore                        # Git ignore rules
+├── .stylelintrc.json                 # Stylelint configuration
+├── eslint.config.js                  # ESLint configuration
+├── LICENSE                           # MIT License
+├── package.json                      # Project configuration
+├── package-lock.json                 # Dependencies lock file
+└── README.md                         # Project documentation
 ```
 
-## Dev Commands
-- `npm run build` - Build project for production
-- `npm run dev` - Start development server with live reload
-- `npm run clean` - Empty the `dist` directory contents
-- `npm run stylelint:fix` - Fix SCSS style issues
-- `npm run eslint:fix` - Fix JavaScript code style
-- `npm run deploy` - Deploy to GitHub Pages
-- `npm run predeploy` - Build before deployment
+## Quick Start
 
-## Build Features
-- HTML minification with customizable options
-- SCSS compilation and minification
-- JavaScript bundling and optimization with esbuild
-- Image optimization for multiple formats (JPEG, PNG, WebP, AVIF)
-- Automated GitHub Pages deployment
-- Favicon generation from source image:
-  - ICO format for legacy browsers
-  - SVG favicon for modern browsers
-  - PNG favicons (16x16, 32x32, 48x48)
-  - Apple Touch Icon
-  - Web App manifest icons
-- Content Security Policy (CSP) Injection
+### Prerequisites
 
-### CSP
-Production builds automatically inject a security-focused CSP meta tag:
-```html
-<meta http-equiv="Content-Security-Policy" content="default-src 'self';">
-```
-**Implementation rationale:**
-The CSP is dynamically injected during production builds to:
-- Prevent conflicts with BrowserSync's live-reload scripts during development. BrowserSync requires injecting third-party scripts for hot-reload functionality. The strict default-src 'self' policy would block these scripts, hence CSP is only enabled in production builds.
-- Avoid security exceptions for external resources in dev mode
-- Maintain strict security posture in production without compromising DX
+- Node.js 18.0.0 or higher
+- npm 9.0.0 or higher
 
-**Default restrictions:**
-- Only allows loading resources from the same origin ('self')
-- Blocks inline scripts/styles
-- Disables eval() in JavaScript
-- Prevents frame embedding
+### Development Dependencies
 
-Customize the Content Security Policy by updating the CSP variable in the `scripts-dev/build.config.js` file to add necessary exceptions (such as 'unsafe-inline' for inline scripts or external CDN domains).
-
-To disable the Content Security Policy completely:
-- Remove the comment `<!-- CSP_META -->` from `src/index.html`
-- Remove the corresponding replacement logic from the `build.js` file and the CSP variable import
-- Remove the CSP variable in the `scripts-dev/build.config.js`
-
-### GitHub Pages Deployment
-Before deploying to GitHub Pages, make sure the `repository.url` field in `package.json` is correctly set. Then run `npm run deploy` to publish the site.
+The project uses the following development dependencies for building and optimization:
+- esbuild@0.25.0 - JavaScript bundler and minifier
+- sass@1.85.1 - CSS preprocessor
+- browser-sync@3.0.3 - Development server with live reload
+- html-minifier-terser@7.2.0 - HTML minification
+- sharp@0.34.1 - Image optimization
+- svgo@3.3.2 - SVG optimization
+- eslint@9.22.0 - JavaScript linting
+- stylelint@16.16.0 - CSS/SCSS linting
+- @stylistic/stylelint-plugin@3.1.2 - Stylelint plugin for style rules
+- gh-pages@6.3.0 - GitHub Pages deployment
+- fs-extra@11.3.0 - Enhanced file system operations
+- png2icons@2.0.1 - Favicon generation
+- globals@16.0.0 - Global variables for ESLint
+- postcss-scss@4.0.9 - SCSS syntax support for PostCSS
+- imagemin@9.0.1 - Image optimization
+- imagemin-pngquant@10.0.0 - PNG optimization plugin for imagemin
 
 ### Favicon Generation
-The build script requires specific source files for favicon generation. Add these files to `assets/img/`:
-- `icon_src.svg` - vector source for SVG favicon
-- `icon_src_512.png` (512x512px) - source for PNG favicons
-- `icon-mask.png` (512x512px) - maskable icon, You can create it using [maskable.app](https://maskable.app/editor)
+
+The build script automatically generates favicons in multiple formats from source files.
+
+To use this feature, add these files to `assets/img/`:
+- `icon_src.svg` - Vector source for SVG favicon
+- `icon_src_512.png` (512x512px) - Source for PNG favicons
+- `icon-mask.png` (512x512px) - Maskable icon (can be created using [maskable.app](https://maskable.app/editor))
+
+The build process will generate:
+- ICO format for legacy browsers
+- SVG favicon for modern browsers
+- PNG favicons (16x16, 32x32, 48x48)
+- Apple Touch Icon
+- Web App manifest icons
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/theEvilGrinch/landing-boilerplate.git
+   cd landing-boilerplate
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development
+
+Start the development server with hot reloading:
+
+```bash
+npm run dev
+```
+
+This will start a local development server at `http://localhost:3000` with live reload.
+
+### Production Build
+
+Create an optimized production build:
+
+```bash
+npm run build
+```
+
+The production-ready files will be output to the `dist` directory.
+
+## Build System
+
+The project uses a custom build system with the following features:
+
+- **ESBuild** for JavaScript bundling and minification
+- **Sass** for CSS preprocessing
+- **HTML Minifier** for HTML optimization
+- **Image optimization** with Sharp, Imagemin and SVGO
+- **Development server** with Browsersync
+
+### Production Build Optimizations
+
+The build system applies these optimizations in production mode:
+
+- **JavaScript**:
+  - Minification and bundling with esbuild
+  - Removal of `console` and `debugger` statements
+  - ESM module format
+
+- **CSS**:
+  - SCSS compilation with compression
+  - No source maps
+
+- **HTML**:
+  - Minification with whitespace/comment removal
+  - CSS/JS minification
+  - Removal of redundant attributes
+
+- **Images**:
+  - Compress JPEGs to 75% quality using MozJPEG 
+  - Compress PNGs at 75% quality (compression level 9)
+  - Compress WebP to 75% quality 
+  - Compress AVIF to 70% quality (effort 5)
+  - Minify SVGs with SVGO 
+  - Generate favicons in multiple formats
 
 ### Browser Launch Scripts
 
-In the `scripts-dev/` directory, there are two shell scripts for launching browsers in incognito/private mode:
+In the `build-system/` directory, there are two shell scripts for launching browsers in incognito/private mode:
 - `open-incognito-chromium.zsh` — launches Chromium-based browsers
 - `open-incognito-firefox.zsh` — launches Firefox
 
@@ -140,7 +215,36 @@ browserSync: {
 }
 ```
 
+### Available Scripts
+
+- `npm run dev` - Start development server with live reload
+- `npm run build` - Create production build
+- `npm run clean` - Clean the dist directory
+- `npm run stylelint:fix` - Fix stylelint issues
+- `npm run eslint:fix` - Fix ESLint issues
+- `npm run deploy` - Deploy to GitHub Pages (requires gh-pages)
+
+## Theming
+
+The template implements a theme system with the following behavior:
+- On page load, it automatically detects and applies the user's preferred color scheme from their browser/OS settings
+- Users can manually toggle between light and dark themes using the 'Change theme' button in the interface
+- The selected theme preference is saved in localStorage for consistency across page visits
+
+## Security
+
+- **Content Security Policy (CSP)** - Configured via the `CSP` variable in `build.config.js`. Note that CSP is only injected in production builds to avoid conflicts with the development server. The default policy is set to `default-src 'self'` for maximum security.
+- **Cookie Consent** - The implementation uses a cookie named `cookieConsent` with a one-year expiration (`Max-Age=31536000`). The cookie is set to `accepted` when the user interacts with the consent dialog.
+- **No Unsafe Inline Scripts** - All JavaScript is properly bundled and doesn't rely on inline scripts or eval()
+
 ## Required Customization
+
+Before using this template, make sure to:
+- Remove all template placeholders and demo content
+- Replace all `<!-- TODO -->` comments with actual content
+- Update all metadata in `package.json`, `assets/manifest.webmanifest`, and `src/index.html`
+- Replace the favicon and other assets in the `assets` directory
+
 Ensure you replace all placeholders with your project-specific values:
 
 - **package.json:**
@@ -172,12 +276,22 @@ Ensure you replace all placeholders with your project-specific values:
   - `<meta name="apple-mobile-web-app-title">`: sets the title for iOS devices
   - `<meta name="geo.region">`: your region code (e.g., "US" for the United States)
   - `<meta name="geo.placename">`: your city or locality
-  - Open Graph and Twitter Card meta tags 
-  - Schema.org microdata in ld+json script tag
+  - Open Graph and Twitter Card meta tags
+
+## Additional Features
+
+- Automatic copyright year update in the footer
+- Responsive design optimized for all device sizes
+- Clean, semantic HTML5 markup
+- Optimized asset loading
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 
-MIT Licensed - See [LICENSE](LICENSE) for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 

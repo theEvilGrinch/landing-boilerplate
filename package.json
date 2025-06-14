@@ -15,8 +15,8 @@
   "homepage": "https://theevilgrinch.github.io/appname/",
   "description": "description",
   "scripts": {
-    "build": "node scripts-dev/build.js",
-    "dev": "NODE_ENV=development node scripts-dev/watch.js",
+    "build": "node build-system/build.js",
+    "dev": "NODE_ENV=development node build-system/watch.js",
     "clean": "node --input-type=module -e \"import fs from 'fs-extra'; fs.emptyDir('dist');\"",
     "stylelint:fix": "npx stylelint \"**/*.scss\" --fix",
     "eslint:fix": "npx eslint \"**/*.js\" --fix",
