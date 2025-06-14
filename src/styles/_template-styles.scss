@@ -1,0 +1,106 @@
+@use "core";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 30px;
+  max-width: 100%;
+  gap: 30px;
+  color-scheme: light dark;
+  font-family: core.$font-family-regular;
+  min-height: 100vh;
+
+  @include core.flex-text(14);
+}
+
+h1,
+h2 {
+  font-family: core.$font-family-medium;
+  text-align: center;
+}
+
+main,
+aside,
+header,
+footer {
+  border: 2px solid #000000;
+}
+
+header,
+footer {
+  width: 100vw;
+  margin: 0 -30px;
+  padding: 0 30px;
+  height: max-content;
+}
+
+header {
+  nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+}
+
+aside.left,
+aside.right {
+  width: clamp(200px, 20%, 300px);
+  flex-grow: 1;
+}
+
+main {
+  width: 60%;
+  flex-grow: 1;
+  padding: 0 30px;
+}
+
+dialog {
+  position: fixed;
+  bottom: 0;
+}
+
+a[href="https://github.com/theEvilGrinch/"] {
+  font-family: core.$font-family-alternate;
+}
+
+button[data-toggle-theme] {
+  display: block;
+  margin: 15px auto;
+}
+
+a.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  text-decoration: none;
+}
+
+.dark-mode {
+  background-color: #4d4d4d;
+  color: #f1f1f1;
+  color-scheme: dark;
+}
+
+.light-mode {
+  background-color: #f1f1f1;
+  color: #4d4d4d;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #f1f1f1;
+    color: #4d4d4d;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #4d4d4d;
+    color: #f1f1f1;
+  }
+}

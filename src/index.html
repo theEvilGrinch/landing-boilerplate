@@ -1,33 +1,34 @@
 <!DOCTYPE html>
-<html lang="ru" prefix="og: http://ogp.me/ns# product: http://ogp.me/ns/product#">
+<html lang="en" prefix="og: http://ogp.me/ns#" id="html">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <!-- CSP_META -->
-  <title>Landing</title> <!-- TODO -->
-  <meta name="description"
-        content="This is a modern calculator built using HTML, CSS, and JavaScript. It features an adaptive design that responds to system color scheme preferences and provides a seamless user experience with enhanced functionalities.">
+  <title>Product Landing</title> <!-- TODO -->
+  <meta name="description" content=""> <!-- TODO -->
   <link rel="canonical" href=""> <!-- TODO -->
-  <link rel="preload" href="./main.css" as="style">
-  <link rel="preload" href="./fonts/sft_regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./fonts/firacode_regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./fonts/sft_medium.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  <script src="./main.js" defer></script>
-  <link rel="icon" href="./favicon.svg" sizes="any" type="image/svg+xml">
-  <link rel="icon" href="./favicon-16x16.png" sizes="16x16" type="image/png">
-  <link rel="icon" href="./favicon-32x32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="./favicon-48x48.png" sizes="48x48" type="image/png">
-  <link rel="apple-touch-icon" href="./apple-touch-icon.png" type="image/png">
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./main.css">
-  <meta name="theme-color" content="#102936"> <!-- TODO -->
+  <link rel="preload" href="main.css" as="style">
+  <link rel="preload" href="fonts/sft_regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/firacode_regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/sft_medium.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="index.mjs" type="module" defer></script>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+  <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="favicon-48x48.png" sizes="48x48" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" type="image/png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="main.css">
+  <meta name="theme-color" content="#102936" media="(prefers-color-scheme: light)"> <!-- TODO -->
+  <meta name="theme-color" content="#0a1a20" media="(prefers-color-scheme: dark)"> <!-- TODO -->
   <meta name="msapplication-TileColor" content="#102936"> <!-- TODO -->
   <meta name="msapplication-navbutton-color" content="#102936"> <!-- TODO -->
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Project_name"> <!-- TODO -->
-  <meta name="geo.region" content="RU-MOW">
-  <meta name="geo.placename" content="Russian Federation, Moscow">
+  <meta name="geo.region" content="US-NY"> <!-- TODO -->
+  <meta name="geo.placename" content="New York, United States"> <!-- TODO -->
+  <meta name="author" content="Evil Grinch"> <!-- TODO -->
   <meta name="rating" content="General">
   <meta name="HandheldFriendly" content="true">
   <!-- Open Graph meta tags -->
@@ -41,6 +42,7 @@
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Alt text"> <!-- TODO -->
   <meta property="og:site_name" content=""> <!-- TODO -->
   <!-- Twitter Card meta tags -->
   <meta name="twitter:card" content="summary_large_image">
@@ -50,146 +52,78 @@
   <meta name="twitter:creator" content="@_theEvilGrinch">
   <meta name="twitter:image" content=""> <!-- TODO -->
   <meta name="twitter:image:alt" content=""> <!-- TODO -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Super Amazing Product",
-      "image": "https://www.example.com/product-image.jpg",
-      "description": "This is a super amazing product that will change your life.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Amazing Brand"
-      },
-      "sku": "12345",
-      "mpn": "67890",
-      "offers": {
-        "@type": "Offer",
-        "url": "https://www.example.com/product-page",
-        "priceCurrency": "RUB",
-        "price": "2999.99",
-        "priceValidUntil": "2025-12-31",
-        "itemCondition": "https://schema.org/NewCondition",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "LocalBusiness",
-          "name": "Amazing Brand Store",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "123 Business Street",
-            "addressLocality": "Moscow",
-            "addressRegion": "Moscow Region",
-            "postalCode": "101000",
-            "addressCountry": "RU"
-          },
-          "telephone": "+7-495-123-4567",
-          "url": "https://www.example.com",
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 55.7558,
-            "longitude": 37.6173
-          },
-          "priceRange": "1000-5000 RUB",
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday"
-              ],
-              "opens": "09:00",
-              "closes": "18:00"
-            }
-          ],
-          "sameAs": [
-            "https://www.facebook.com/mycompany",
-            "https://twitter.com/mycompany"
-          ],
-          "image": "https://www.example.com/store-logo.jpg"
-        },
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "deliveryMethod": {
-            "@type": "DeliveryMethod",
-            "name": "Mail",
-            "url": "https://www.example.com/shipping-info"
-          },
-          "shippingDestination": {
-            "@type": "DefinedRegion",
-            "addressCountry": "RU"
-          },
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "currency": "RUB",
-            "value": "250.00"
-          },
-          "deliveryTime": {
-            "@type": "ShippingDeliveryTime",
-            "handlingTime": {
-              "@type": "QuantitativeValue",
-              "minValue": 1,
-              "maxValue": 2,
-              "unitCode": "DAY"
-            },
-            "transitTime": {
-              "@type": "QuantitativeValue",
-              "minValue": 3,
-              "maxValue": 5,
-              "unitCode": "DAY"
-            }
-          }
-        },
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "returnFees": "https://schema.org/FreeReturn",
-          "returnMethod": "https://schema.org/ReturnByMail",
-          "applicableCountry": "RU",
-          "merchantReturnDays": 14,
-          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow"
-        }
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.5",
-        "reviewCount": "150"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "John Doe"
-          },
-          "datePublished": "2024-05-01",
-          "reviewBody": "This product is fantastic! It changed my life.",
-          "name": "Great product!"
-        }
-      ]
-    }
-  </script>
 </head>
-
 <body>
-
 <header>
-  <h1>Landing</h1>
+  <h1>SEO-Optimized Responsive Landing Page Template</h1>
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="./" aria-current="page">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <button data-toggle-theme aria-label="Toggle color theme">Change theme</button>
 </header>
-
+<aside class="left" aria-label="Side panel">
+  <h2>Sidebar left</h2>
+</aside>
 <main>
-
+  <h2>Main content</h2>
+  <p>
+    lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+    duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur
+    sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
+    adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis
+    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit
+    lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+    duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur
+    sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
+    adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis
+    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit
+  </p>
+  <p>
+    lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+    duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur
+    sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
+    adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis
+    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit
+    lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+    duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur
+    sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
+    adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis
+    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit
+  </p>
+  <p>
+    lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+    duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur
+    sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
+    adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis
+    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit
+    lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+    duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur
+    sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
+    adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis
+    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit
+  </p>
 </main>
-
-<footer>
-  <p>© 2023 Project_name. Все права защищены.</p>
-  <p>Разработано с любовью <a href="https://github.com/theEvilGrinch/" target="_blank">@theEvilGrinch</a></p>
-
-  <dialog id="cookieDialog">
-    <p>На сайте используются cookie для улучшения его работы и удобства пользователей. Продолжая, вы соглашаетесь с их
-      использованием.</p>
-    <button class="js-CookieCloseBtn">Принять</button>
+<aside class="right" aria-label="Additional information">
+  <h2>Sidebar right</h2>
+</aside>
+<footer role="contentinfo">
+  <p>© <span data-copyright-year>2023</span> Project_name. All rights reserved.</p>
+  <p>Developed with love by <a rel="noopener noreferrer" href="https://github.com/theEvilGrinch/" target="_blank">@theEvilGrinch</a></p>
+  <a href="#html" class="scroll-to-top">UP👆</a>
+  <dialog id="cookieDialog" role="alertdialog" aria-label="Cookie Notice" aria-modal="true">
+    <p>This website uses cookies to enhance your experience and improve our services. By continuing, you agree to our
+      use of cookies.</p>
+    <button class="js-CookieCloseBtn" aria-label="Accept cookie policy">Accept</button>
   </dialog>
 </footer>
 
