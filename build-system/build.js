@@ -13,7 +13,7 @@ import png2icons from 'png2icons';
 import imagemin from 'imagemin';
 import imageminPngquant from 'imagemin-pngquant';
 import {optimize} from 'svgo';
-import {projectPaths, config, DEV_MODE, CSP} from './build.config.js';
+import {projectPaths, config, DEV_MODE, CSP, CSP_DEV_MODE} from './build.config.js';
 
 export async function minifyHTML() {
   try {
@@ -21,13 +21,14 @@ export async function minifyHTML() {
     const pages = files.filter((file) => file.endsWith('.html'));
     for (const page of pages) {
       let content = await fs.readFile(path.join(projectPaths.html.srcDir, page), 'utf8');
-      if (path.basename(page) === 'index.html' && !DEV_MODE) {
-        content = content.replace('<!-- CSP_META -->', `<meta http-equiv="Content-Security-Policy" content="${CSP}">`);
-        const minified = await minify(content, config.html);
-        fs.writeFile(path.join(projectPaths.distDir, page), minified);
-      } else {
-        fs.writeFile(path.join(projectPaths.distDir, page), content);
+      if (path.basename(page) === 'index.html') {
+        const cspMeta = DEV_MODE
+          ? `<meta http-equiv="Content-Security-Policy" content="${CSP_DEV_MODE}">`
+          : `<meta http-equiv="Content-Security-Policy" content="${CSP}">`;
+        content = content.replace('<!-- CSP_META -->', cspMeta);
       }
+      const finalContent = DEV_MODE ? content : await minify(content, config.html);
+      await fs.writeFile(path.join(projectPaths.distDir, page), finalContent);
     }
     console.log('HTML OK');
   } catch (err) {
