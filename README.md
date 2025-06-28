@@ -25,7 +25,6 @@ A production-ready, high-performance landing page template built with modern web
 - [Theming](#theming)
 - [Security](#security)
 - [Required Customization](#required-customization)
-- [Additional Features](#additional-features)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -38,9 +37,12 @@ A production-ready, high-performance landing page template built with modern web
 - **Fully Responsive** - Optimized for mobile and desktop devices
 - **Developer Experience** - Live reload and modern tooling
 - **Dark/Light Mode** - Automatic theme detection with manual override
-- **Cookie Consent** - Basic cookie consent functionality
+- **Cookie Consent** - Basic cookie consent functionality with one-year expiration
 - **SEO Optimized** - Semantic HTML and meta tags
 - **Zero Dependencies** - No JavaScript framework required
+- **Semantic HTML5** - Clean, semantic markup structure
+- **Optimized Loading** - Efficient asset loading strategies
+- **Auto Copyright** - Automatic copyright year update in footer
 
 ## Project Structure
 
@@ -235,9 +237,9 @@ The template implements a theme system with the following behavior:
 
 ## Security
 
-- **Content Security Policy (CSP)** - Configured via the `CSP` variable in `build.config.js`. Note that CSP is only injected in production builds to avoid conflicts with the development server. The default policy is set to `default-src 'self'` for maximum security.
-- **Cookie Consent** - The implementation uses a cookie named `cookieConsent` with a one-year expiration (`Max-Age=31536000`). The cookie is set to `accepted` when the user interacts with the consent dialog.
-- **No Unsafe Inline Scripts** - All JavaScript is properly bundled and doesn't rely on inline scripts or eval()
+**Content Security Policy (CSP)** - Configured via `CSP` and `CSP_DEV_MODE` variables in `build.config.js`. The system automatically injects appropriate CSP headers based on the environment:
+- **Production mode (`CSP`)**: Strict security policy set to `default-src 'self'` for maximum security
+- **Development mode (`CSP_DEV_MODE`)**: Relaxed policy that includes permissions for JetBrains IDE live preview (`http://localhost:63342`), BrowserSync (`http://localhost:3000`), and allows inline scripts (`'unsafe-inline'`) for development convenience
 
 ## Required Customization
 
@@ -279,13 +281,6 @@ Ensure you replace all placeholders with your project-specific values:
   - `<meta name="geo.region">`: your region code (e.g., "US" for the United States)
   - `<meta name="geo.placename">`: your city or locality
   - Open Graph and Twitter Card meta tags
-
-## Additional Features
-
-- Automatic copyright year update in the footer
-- Responsive design optimized for all device sizes
-- Clean, semantic HTML5 markup
-- Optimized asset loading
 
 ## Contributing
 
