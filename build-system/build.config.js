@@ -2,7 +2,9 @@ import path from 'path';
 import {fileURLToPath} from 'url';
 
 export const DEV_MODE = process.env.NODE_ENV === 'development';
-export const CSP = 'default-src \'self\';'; // Content Security Policy
+// Content Security Policy
+export const CSP = 'default-src \'self\';';
+export const CSP_DEV_MODE = 'default-src \'self\'; script-src \'self\' \'unsafe-inline\' http://localhost:63342 http://localhost:3000;';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.dirname(__dirname);
